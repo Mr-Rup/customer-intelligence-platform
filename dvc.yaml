@@ -1,0 +1,58 @@
+# ──────────────────────────────────────────────
+# DVC Pipeline — Customer Intelligence Platform
+# ──────────────────────────────────────────────
+# Run with: dvc repro
+
+stages:
+  clean:
+    cmd: .venv/Scripts/python.exe -m src.cleaning
+    deps:
+      - data/raw/Telco_customer_churn.csv
+      - src/cleaning.py
+      - src/config.py
+      - src/utils.py
+    outs:
+      - data/interim/telco_clean.csv
+
+  features:
+    cmd: .venv/Scripts/python.exe -m src.feature_engineering
+    deps:
+      - data/interim/telco_clean.csv
+      - src/feature_engineering.py
+      - src/config.py
+    params:
+      - data.target
+    outs:
+      - data/processed/telco_features.csv
+
+  train:
+    cmd: .venv/Scripts/python.exe -m src.train
+    deps:
+      - data/processed/telco_features.csv
+      - src/train.py
+      - src/preprocessing.py
+      - src/config.py
+    params:
+      - split
+      - model
+    outs:
+      - models/best_model.joblib
+      - models/scaler.joblib
+      - models/feature_names.json
+      - models/X_test.csv
+      - models/y_test.csv
+    metrics:
+      - models/metrics.json:
+          cache: false
+
+  evaluate:
+    cmd: .venv/Scripts/python.exe -m src.evaluate
+    deps:
+      - models/best_model.joblib
+      - models/X_test.csv
+      - models/y_test.csv
+      - src/evaluate.py
+      - src/config.py
+    metrics:
+      - models/evaluation.json:
+          cache: false

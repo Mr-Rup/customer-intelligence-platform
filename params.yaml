@@ -1,0 +1,60 @@
+# ──────────────────────────────────────────────
+# Customer Intelligence Platform — Parameters
+# ──────────────────────────────────────────────
+# Central parameter store for reproducibility.
+# Referenced by DVC pipeline and src modules.
+
+data:
+  raw_file: "Telco_customer_churn.csv"
+  target: "Churn Value"
+
+split:
+  test_size: 0.2
+  random_state: 42
+
+model:
+  logistic_regression:
+    max_iter: 1000
+    C: 1.0
+    solver: "lbfgs"
+
+  random_forest:
+    n_estimators: 500
+    max_depth: 10
+    min_samples_split: 5
+    min_samples_leaf: 2
+    class_weight: "balanced"
+
+  xgboost:
+    n_estimators: 500
+    max_depth: 6
+    learning_rate: 0.1
+    scale_pos_weight: 2.77
+    eval_metric: "logloss"
+    use_label_encoder: false
+
+  lightgbm:
+    n_estimators: 500
+    max_depth: 6
+    learning_rate: 0.1
+    num_leaves: 31
+    class_weight: "balanced"
+    verbose: -1
+
+  catboost:
+    iterations: 500
+    depth: 6
+    learning_rate: 0.1
+    auto_class_weights: "Balanced"
+    verbose: 0
+
+segmentation:
+  n_clusters: 5
+  random_state: 42
+
+clv:
+  discount_rate: 0.1
+  avg_customer_lifespan_months: 60
+
+threshold:
+  optimize_metric: "f1"
