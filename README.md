@@ -103,6 +103,9 @@ customer-intelligence-platform/
 |   +-- data_audit.md
 |   +-- statistical_report.md
 |   +-- model_report.md
+|   +-- eda_findings.md
+|   +-- feature_governance.md
+|   +-- data_quality_report.md
 |   +-- business_recommendations.md
 |
 +-- models/                     # Serialized models and metrics
@@ -170,7 +173,7 @@ Extensive analysis across 7 dimensions:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/customer-intelligence-platform.git
+git clone https://github.com/Mr-Rup/customer-intelligence-platform.git
 cd customer-intelligence-platform
 
 # Create virtual environment

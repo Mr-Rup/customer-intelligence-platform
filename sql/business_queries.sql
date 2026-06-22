@@ -22,7 +22,7 @@ FROM customers;
 SELECT
     CASE WHEN "Churn Value" = 1 THEN 'Churned' ELSE 'Retained' END AS status,
     COUNT(*) AS customer_count,
-    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM customers), 2) AS percentage
+    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM customers), 2) AS percentage  -- upto 2 decimal place
 FROM customers
 GROUP BY "Churn Value"
 ORDER BY "Churn Value";

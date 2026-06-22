@@ -7,7 +7,7 @@
 Customer churn is one of the most critical metrics in the telecommunications industry.
 For every customer lost, the company incurs acquisition costs to replace them — typically
 5-7x the cost of retention. This project builds an end-to-end analytics platform to
-**predict**, **explain**, and **prevent** customer churn.
+**predict**, **explain**, and **prevent** customer churn. 
 
 ### Dataset
 

@@ -21,7 +21,7 @@ the 26.54% churn rate (class imbalance ratio of 2.77:1).
 |-------|---------|-----|-----------|--------|
 | Best model selected by ROC-AUC | | | | |
 
-*Note: Run the 07_modeling.ipynb notebook for exact values.*
+*Note: Run the 07_modeling.ipynb notebook for exact values.* 
 
 ## Threshold Optimization
 

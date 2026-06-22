@@ -67,6 +67,4 @@
 
 ## Conclusion
 
-Statistical analysis confirms the EDA findings and provides quantified effect sizes for
-each feature. The top predictors (Contract, Internet Service + Security, Tenure, Payment Method)
-are supported by both statistical significance and practical significance.
+Statistical analysis confirms the EDA findings and provides quantified effect sizes for each feature. The top predictors (Contract, Internet Service + Security, Tenure, Payment Method) are supported by both statistical significance and practical significance.

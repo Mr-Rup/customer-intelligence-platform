@@ -1,5 +1,6 @@
 # Business Recommendations Report
 
+---
 ## Overview
 
 This report translates analytical findings into actionable retention strategies,

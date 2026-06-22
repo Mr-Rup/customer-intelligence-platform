@@ -40,7 +40,8 @@ def df_summary(df: pd.DataFrame, name: str = "DataFrame") -> None:
     """Print a concise summary of a DataFrame."""
     print(f"\n[INFO] {name}")
     print(f"   Shape: {df.shape[0]:,} rows x {df.shape[1]} columns")
-    print(f"   Memory: {df.memory_usage(deep=True).sum() / 1024 / 1024:.2f} MB")
+    print(f"\nColumn Types:\n {df.dtypes.value_counts()}")
+    print(f"\n   Memory: {df.memory_usage(deep=True).sum() / 1024 / 1024:.2f} MB")
     n_missing = df.isnull().sum().sum()
     if n_missing > 0:
         print(f"   Missing values: {n_missing:,}")
